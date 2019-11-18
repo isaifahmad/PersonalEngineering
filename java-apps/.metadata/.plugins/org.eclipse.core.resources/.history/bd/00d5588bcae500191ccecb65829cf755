@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package workone;
+
+import java.lang.annotation.Documented;
+
+@Documented
+/**
+ * @author saifahmad
+ *
+ */
+public @interface WorkAnnotation {
+
+}

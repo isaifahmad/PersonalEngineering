@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package workone;
+
+/**
+ * @author saifahmad
+ *
+ */
+@CustomeAnnotation(custome_type = "PROTOCAL", no_of_types = 4)
+public class UseCustomeAnnotation {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Applying custome annotation");
+
+	}
+
+}

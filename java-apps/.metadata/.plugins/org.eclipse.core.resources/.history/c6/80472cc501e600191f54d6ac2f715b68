@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package workone;
+
+/**
+ * @author saifahmad
+ *
+ */
+@CustomeAnnotation(custome_type = "PROTOCAL", no_of_types = 4)
+class UpperClass {
+	public void upperMe() {
+		System.out.println("This is upperMe of UpperCustome");
+	}
+}
+
+
+
+public class UseCustomeAnnotation extends UpperClass {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Applying custome annotation");
+
+	}
+
+}

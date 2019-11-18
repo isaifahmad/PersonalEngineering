@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package com.sourcecode.designpatterns;
+
+/**
+ * @author saifahmad
+ *
+ */
+public class MessageDelivery {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String msg = "New Project Launched";
+		String recipient = "girish.bindal@proptiger.com";
+		String phone = "9089081212";
+		
+		
+	}
+
+}

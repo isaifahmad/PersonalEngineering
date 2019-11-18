@@ -1,0 +1,52 @@
+import java.util.*;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class LearnGenerics extends LearnCollections {
+	
+	
+	public void start() {
+		System.out.println("Start Generics");
+		
+		List<Integer> iList = new ArrayList<Integer>();
+		iList.add(10);
+		System.out.println(iList);
+		
+		iList.add("F10");
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Learning sessions for Java Collections\n");
+		LearnGenerics learn = new LearnGenerics();
+		learn.learnArrayList();
+		
+		learn.start();
+		
+		GenericClass genObj = new GenericClass();
+		genObj.set("ABC");
+		
+	}
+}
+
+
+class GenericClass<T> {
+	private T iVar;
+	
+	public void set(T tVar) {
+		this.iVar = tVar;
+	}
+	
+	public T get() {
+		return this.iVar;
+	}
+}

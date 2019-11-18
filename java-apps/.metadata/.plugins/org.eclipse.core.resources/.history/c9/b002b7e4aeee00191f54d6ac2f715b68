@@ -1,0 +1,41 @@
+class MathTable {
+	
+	public void printtTable(int num) {
+		for(int i = 1; i <= 10; i++) {
+			System.out.println(num + "  x " + i + " = " + num * i);
+		}
+	}
+	
+}
+
+
+class AskTable extends Thread {
+	
+	MathTable tableObj;
+	int num;
+	
+	AskTable(MathTable mt, int n) {
+		this.tableObj = mt;
+		this.num = n;
+	}
+	
+	public void run() {
+		tableObj.printtTable(this.num);
+	}
+	
+}
+
+public class LearnThreadSync {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Initiating main thread..");
+		
+		MathTable mathTableObj = new MathTable();
+		mathTableObj.printtTable(2);
+		
+		
+
+	}
+
+}

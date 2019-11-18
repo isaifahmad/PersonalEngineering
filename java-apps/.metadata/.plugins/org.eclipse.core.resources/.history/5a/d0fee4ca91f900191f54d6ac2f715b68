@@ -1,0 +1,39 @@
+import java.sql.*;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class DBOps {
+	
+	Connection dbConnection;
+	
+	DBOps() {
+		try {
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+		}
+		catch(Exception e) {
+			System.out.println("Driver issue: " + e);
+		}
+	}
+	
+	
+	private void getDBConnect() {
+		try {
+			this.dbConnection = DriverManager.getConnection("jdbc:odbc:localhost", "learner", "learner");
+		}
+		catch(Exception e) {
+			System.out.println("Connected failed:" + e);
+		}
+	}
+	
+	public Connection init() {
+		this.getDBConnect();
+		return this.dbConnection;
+	}
+
+}

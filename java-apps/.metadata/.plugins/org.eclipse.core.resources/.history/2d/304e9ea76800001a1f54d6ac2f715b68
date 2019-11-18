@@ -1,0 +1,76 @@
+package com.sourcecode.servletlearning;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class ServletWithParams
+ */
+@WebServlet("/ServletWithParams")
+public class ServletWithParams extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	PrintWriter print;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ServletWithParams() {
+        super();
+  
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		this.print = response.getWriter();
+		print.println("\nMy name is " + request.getParameter("fname") + " " + request.getParameter("lname"));
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		this.print = response.getWriter();
+		print.println("\nUsername is " + request.getParameter("uname") + " and your password is " + request.getParameter("pwd"));
+		
+		Enumeration enumObj = request.getParameterNames();
+		Enumeration attribs = request.getAttributeNames();
+		Enumeration header = request.getHeaderNames();
+		
+		while(enumObj.hasMoreElements()) {
+			String param = (String) enumObj.nextElement();
+			print.println("\nParam:" + param);
+		}
+		
+		print.println("\ngetting attributes");
+		while(attribs.hasMoreElements()) {
+			String attrib = (String) attribs.nextElement();
+			print.println("\nAttribute:" + attrib);
+			
+		}
+		
+		print.println("\ngetting headers");
+		while(header.hasMoreElements()) {
+			String head = (String) header.nextElement();
+			print.println("\nAttribute:" + head);
+			
+		}
+		
+	}
+
+}

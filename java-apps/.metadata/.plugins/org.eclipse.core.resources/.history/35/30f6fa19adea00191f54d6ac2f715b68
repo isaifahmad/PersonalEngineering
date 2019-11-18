@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class LearnGenerics extends LearnCollections {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Learning sessions for Java Collections\n");
+		LearnCollections learn = new LearnCollections();
+		learn.learnArrayList();
+		
+	}
+}

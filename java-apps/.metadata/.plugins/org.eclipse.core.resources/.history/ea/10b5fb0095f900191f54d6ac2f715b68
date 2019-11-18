@@ -1,0 +1,24 @@
+import java.sql.Connection;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class ShopCrudExample {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DBOps dbObj = new DBOps();
+		Connection conObj = dbObj.init(); 
+		System.out.println("DB connection established");
+
+	}
+
+}

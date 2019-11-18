@@ -1,0 +1,19 @@
+import java.sql.*;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class DBOps {
+	
+	Connection dbConnection;
+	
+	DBOps() {
+		Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+	}
+
+}

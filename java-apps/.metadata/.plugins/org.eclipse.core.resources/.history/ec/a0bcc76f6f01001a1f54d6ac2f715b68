@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package com.sourcecode.designpatterns;
+
+/**
+ * @author saifahmad
+ *
+ */
+public class ConsumerApp implements Consumer {
+
+	@Override
+	public void processMessage(String msg, String recipient) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

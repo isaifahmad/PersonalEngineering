@@ -1,0 +1,88 @@
+import java.sql.Connection;
+
+import java.sql.*;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class ShopCrudExample {
+
+	Connection conObj;
+	Statement stateObj;
+	DBOps dbObj; 
+	ResultSet result;
+	
+	ShopCrudExample() {
+		try {
+			this.dbObj = new DBOps();
+			this.conObj = this.dbObj.init();
+			this.stateObj = this.conObj.createStatement();
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void addCategory(String catName) {
+		try {
+			
+			String sql = "INSERT INTO category(name, created_at, updated_at) VALUES('" + catName + "', now(), now())";
+			this.stateObj.execute(sql);
+			System.out.println("A new category(" + catName + ") successfully added");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void getCategories() {
+		try {
+			String sql = "SELECT name FROM shop.category";
+			this.result = this.stateObj.executeQuery(sql);
+			
+			while(result.next()) {
+				System.out.println("Category:" + result.getString('name'));
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "[Result=" + result + "]";
+	}
+	
+	
+	public void close() {
+		this.dbObj.done();
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		ShopCrudExample shopObj = new ShopCrudExample();
+		 
+		System.out.println("DB connection established");
+		
+		/* Adding a new Category */
+		//shopObj.addCategory("Pens");
+		shopObj.getCategories();
+		
+		shopObj.close();
+		
+
+	}
+
+}

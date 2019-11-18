@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.sourcecode.designpatterns;
+
+/**
+ * @author saifahmad
+ *
+ */
+public class MessageDelivery {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		EmailMessageService email = new EmailMessageService();
+		email.sendMessage("New Project launched", "saif.ahmad@makaan.com");
+
+	}
+
+}

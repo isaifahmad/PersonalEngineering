@@ -1,0 +1,48 @@
+import java.sql.Connection;
+
+import java.sql.*;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class ShopCrudExample {
+
+	Connection conObj;
+	Statement stateObj;
+	
+	public void addCategory(String catName) {
+		try {
+			this.stateObj = this.conObj.createStatement();
+			String sql = "INSERT INTO category(name, created_at, updated_at) VALUES('" + catName + "', now(), now())";
+			this.stateObj.execute(sql);
+			System.out.println("A new category(" + catName + " successfully added");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DBOps dbObj = new DBOps();
+		
+		ShopCrudExample shopObj = new ShopCrudExample();
+		
+		shopObj.conObj = dbObj.init(); 
+		System.out.println("DB connection established");
+		
+		shopObj.addCategory("Toys");
+		
+		dbObj.done();
+
+	}
+
+}

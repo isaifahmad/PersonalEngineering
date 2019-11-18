@@ -1,0 +1,18 @@
+class MathTable {
+	
+	
+	
+}
+
+
+public class LearnThreadSync {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Initiating main thread..");
+		MathTable mathTableObj = new MathTable();
+		
+
+	}
+
+}

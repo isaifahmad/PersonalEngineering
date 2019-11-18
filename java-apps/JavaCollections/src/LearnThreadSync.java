@@ -1,0 +1,49 @@
+class MathTable {
+	
+	public synchronized void printtTable(int num) {
+		for(int i = 1; i <= 10; i++) {
+			System.out.println(num + "  x " + i + " = " + num * i);
+			
+			try {
+				Thread.sleep(500);
+			}
+			catch(InterruptedException e) {
+				System.out.println("Thread is interrupted");
+			}
+		}
+	}
+	
+}
+
+
+class AskTable extends Thread {
+	
+	MathTable tableObj;
+	int num;
+	
+	AskTable(MathTable mt, int n) {
+		this.tableObj = mt;
+		this.num = n;
+		start();
+	}
+	
+	public void run() {
+		tableObj.printtTable(this.num);
+	}
+	
+}
+
+public class LearnThreadSync {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Initiating main thread..");
+		
+		MathTable mathTableObj = new MathTable();
+		
+		AskTable five = new AskTable(mathTableObj, 5);
+		AskTable seven = new AskTable(mathTableObj, 7);
+		
+	}
+
+}

@@ -1,0 +1,72 @@
+package com.sourcecode.servletlearning;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class BeginServlet
+ */
+@WebServlet("/BeginServlet")
+public class BeginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public BeginServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		PrintWriter printWriter = response.getWriter();
+		printWriter.println("<h3>Let's begin Servlets</h3>");
+		printWriter.println("<h4>Servlet Started</h4>");
+		
+		// Set refresh, autoload time as 5 seconds
+	      response.setIntHeader("Refresh", 5);
+	      
+	      Calendar cal = new GregorianCalendar(); 
+	      
+	      int hour = cal.get(Calendar.HOUR);
+	      int min = cal.get(Calendar.MINUTE);
+	      int sec = cal.get(Calendar.SECOND);
+	      
+	      String am_pm;
+	      
+	      if(cal.get(Calendar.AM_PM) == 0) {
+	    	  am_pm = "AM";
+	      }
+	      else {
+	    	  am_pm = "PM";
+	      }
+	      
+	      String thisTime = "HH:" + hour + " MM:" + min + " SS:" + sec + " " + am_pm;
+	      printWriter.println(thisTime);
+	      
+	      response.sendError(407, "Authentical failed!");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,29 @@
+
+class MainThread extends Thread {
+	MainThread() {
+		super("MainThread extending Thread\n");
+		System.out.println("MainThread created\t" + this.getPriority() + "\t" + this);
+		start();
+	}
+	
+	public void run() {
+		System.out.println("Staring to run MainThread");
+		
+		for(int i = 0; i <10; i++) {
+			System.out.println("run: Iterating No:" + i);
+		}
+	}
+}
+
+
+public class LearnThreads {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		MainThread threadObj = new MainThread();
+		System.out.println("LearnThread....");
+
+	}
+
+}

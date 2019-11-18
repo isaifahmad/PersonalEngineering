@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package com.sourcecode.designpatterns;
+
+/**
+ * @author saifahmad
+ *
+ */
+public class MessageDelivery {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String msg = "New Project Launched";
+		String recipient = "girish.bindal@proptiger.com";
+		EmailMessageService email = new EmailMessageService();
+		//email.sendMessage("New Project launched", "saif.ahmad@makaan.com");
+		
+		ConsumerApp app = new ConsumerApp(email);
+		app.processMessage(msg, recipient);
+		
+		SmsMessageService sms = new SmsMessageService();
+		//sms.sendMessage("Project successfully delivered", "9899990055");
+
+	}
+
+}

@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package workone;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+
+@Documented
+/**
+ * @author saifahmad
+ *
+ */
+//@Target(ElementType.TYPE)
+public @interface WorkAnnotation {
+	
+	String name() default "Hacking";
+	int count() default 786;
+
+}

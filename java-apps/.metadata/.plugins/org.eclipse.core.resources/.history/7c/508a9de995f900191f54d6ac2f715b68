@@ -1,0 +1,39 @@
+import java.sql.Connection;
+
+import com.mysql.cj.xdevapi.Statement;
+
+/**
+ * 
+ */
+
+/**
+ * @author saifahmad
+ *
+ */
+public class ShopCrudExample {
+
+	Connection conObj;
+	Statement stateObj;
+	
+	public void addCategory() {
+		this.stateObj = this.conObj.createStatement();
+		String sql = "";
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DBOps dbObj = new DBOps();
+		
+		ShopCrudExample shopObj = new ShopCrudExample();
+		
+		shopObj.conObj = dbObj.init(); 
+		System.out.println("DB connection established");
+		
+		dbObj.done();
+
+	}
+
+}
